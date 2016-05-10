@@ -61,7 +61,12 @@ for h in commodities:
         # Create the flow conservation constraint
         prob += pulp.lpSum(flow[h, j, i] for j in graph.predecessors(i)) - pulp.lpSum(flow[h, i, j] for j in graph.successors(i)) == netsupply, "Flow Conservation Constraint Node %s Commodity %s" % (str(i), h)
 
-    # The problem data is written to an .lp file
+# Max path constraint
+Max_path_lenght_allowed = 10
+for h in commodities:
+    prob += pulp.lpSum(flow[h, o, d] for o, d, data in graph.edges(data=True)) <= Max_path_lenght_allowed, "Lenght_path_between_(%s,%s)" % (commodities[h]["from"], commodities[h]["to"])
+
+# The problem data is written to an .lp file
 prob.writeLP("LpModel/My_first_Multicommodity_Model.lp")
 # The problem is solved using PuLP's choice of Solver
 prob.solve()
