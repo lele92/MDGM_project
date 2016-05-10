@@ -1,0 +1,26 @@
+{
+  "node": {
+    "number":10,
+    "p": 0.2
+  },
+  "arc": {
+    "type_of_transport": [
+      "truck",
+      "train"
+    ],
+    "capacity": {
+      "truck": 10,
+      "train": 200
+    },
+    "cost": {
+      "truck": {
+        "mean": 20,
+        "variance": 10
+      },
+      "train": {
+        "mean": 200,
+        "variance": 100
+      }
+    }
+  }
+}

@@ -2,17 +2,20 @@ __author__ = 'Trappola'
 
 from networkx import nx
 import random
+import json
+import sys
 
-type_of_transport = ["truck", "train"]
+network_configuration_file = open("Config/network_configuration.json").read()
+network_configuration_parameters = json.loads(network_configuration_file)
 
-capacity = {"truck": 10,
-            "train": 200}
+type_of_transport = network_configuration_parameters["arc"]["type_of_transport"]
+capacity = network_configuration_parameters["arc"]["capacity"]
+cost = network_configuration_parameters["arc"]["cost"]
+num_node_network = network_configuration_parameters["node"]["number"]
+p_linkage_network = network_configuration_parameters["node"]["p"]
 
-cost = {"truck": {"mean": 20, "variance": 10},
-        "train": {"mean": 200, "variance": 100}}
-
-num_node_network = 10
-graph = nx.erdos_renyi_graph(num_node_network, 0.2, directed=True)
+# sys.exit()
+graph = nx.erdos_renyi_graph(num_node_network, p_linkage_network, directed=True)
 output_folder = "data"
 out_file = open(output_folder+"/random_network_"+str(num_node_network)+".csv", "w")
 
