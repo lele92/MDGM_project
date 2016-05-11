@@ -9,14 +9,20 @@ input_random_network = open(path_random_network)
 graph = nx.read_edgelist(input_random_network, delimiter=',', create_using=nx.DiGraph(), nodetype=int, data=(('cost', float), ('capacity', float)))
 
 
-min_capacity = 10           # capacity minima ( = capacity truck)
+# read configuration file with orders parameter for any order of our problem
+orders_configuration_file = open("Config/orders_config.json").read()
+orders_configuration_parameters = json.loads(orders_configuration_file)
+
+# assign orders parameter into variable
+min_capacity = orders_configuration_parameters["min_capacity"]           # capacity minima ( = capacity truck)
+min_len_shortest_path = orders_configuration_parameters["min_len_shortest_path"]   # lunghezza minima shortest path
+num_max_orders = orders_configuration_parameters["num_max_orders"]         # numero massimo di ordini, solo se limited_num_orders = true
+limited_num_orders = True   # se = True => vengono salvati al max num_max_orders ordini
+unique_sources = orders_configuration_parameters["unique_sources"]       # se = True => i nodi partenza degli ordini saranno tutti diversi
+
 nodes = graph.nodes()
 orders = []                 # lista di ordini
 order_count = 0
-min_len_shortest_path = 2   # lunghezza minima shortest path
-num_max_orders = 4          # numero massimo di ordini, solo se limited_num_orders = true
-limited_num_orders = True   # se = True => vengono salvati al max num_max_orders ordini
-unique_sources = True       # se = True => i nodi partenza degli ordini saranno tutti diversi
 
 for n1 in nodes:
     tmp = list(nodes)
