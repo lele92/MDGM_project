@@ -5,6 +5,8 @@ import random
 import json
 import sys
 
+# This is the general file to create the custom network and order from configuration parameters
+
 # read configuration file with network parameter for arc and node
 network_configuration_file = open("Config/network_configuration.json").read()
 network_configuration_parameters = json.loads(network_configuration_file)
