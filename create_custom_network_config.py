@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 __author__ = 'Trappola'
 
 from networkx import nx
@@ -37,14 +38,15 @@ orders_configuration_file = open("Config/orders_config.json").read()
 orders_configuration_parameters = json.loads(orders_configuration_file)
 
 # assign orders parameter into variable
-min_capacity = orders_configuration_parameters["min_capacity"]           # capacity minima ( = capacity truck)
+min_capacity = orders_configuration_parameters["min_capacity"]              # capacity minima ( = capacity truck)
 min_len_shortest_path = orders_configuration_parameters["min_len_shortest_path"]   # lunghezza minima shortest path
-num_max_orders = orders_configuration_parameters["num_max_orders"]         # numero massimo di ordini, solo se limited_num_orders = true
-limited_num_orders = True   # se = True => vengono salvati al max num_max_orders ordini
-unique_sources = orders_configuration_parameters["unique_sources"]       # se = True => i nodi partenza degli ordini saranno tutti diversi
+num_max_orders = orders_configuration_parameters["num_max_orders"]          # numero massimo di ordini, solo se limited_num_orders = true
+# limited_num_orders = True   # se = True => vengono salvati al max num_max_orders ordini
+unique_sources = orders_configuration_parameters["unique_sources"]          # se = True => i nodi partenza degli ordini saranno tutti diversi
+orders_flag = False                                                         # = true se è stato raggiunto il numero di ordini specificato in num_max_orders
 
 nodes = graph.nodes()
-orders = []                 # lista di ordini
+orders = []                                                                 # lista di ordini
 order_count = 0
 
 # create orders with configuration parameter
@@ -52,38 +54,38 @@ for n1 in nodes:
     tmp = list(nodes)
     tmp.remove(n1)
     for n2 in tmp:
-        if limited_num_orders and len(orders) == num_max_orders:        # vengono fatti comunque dei cicli inutili, ma pazienza
+        if not len(orders) == num_max_orders:
+            try:
+                shortest_path_len = nx.shortest_path_length(graph, source=n1, target=n2)
+                # print str(n1) + " -> " + str(n2) + " - shortest path length: " + str(shortest_path_len)
+                if shortest_path_len >= min_len_shortest_path:
+                    print str(n1) + " -> " + str(n2) + " - shortest path length: " + str(shortest_path_len)
+                    order_name = "order_" + str(order_count)
+                    order_count += 1
+                    orders.append({
+                        order_name: {
+                            'from': n1,
+                            'to': n2,
+                            'supply': random.randint(1, min_capacity)
+                        }
+                    })
+                    if unique_sources:
+                        break
+            except nx.NetworkXNoPath as e:
+                print str(n1) + " -> " + str(n2) + " -  no shortest path"
+        else:
+            orders_flag = True
             break
-        try:
-            shortest_path_len = nx.shortest_path_length(graph, source=n1, target=n2)
-            # print str(n1) + " -> " + str(n2) + " - shortest path length: " + str(shortest_path_len)
-            if shortest_path_len >= min_len_shortest_path:
-                print str(n1) + " -> " + str(n2) + " - shortest path length: " + str(shortest_path_len)
-                order_name = "order_" + str(order_count)
-                order_count += 1
-                orders.append({
-                    order_name: {
-                        'from': n1,
-                        'to': n2,
-                        'supply': random.randint(1, min_capacity)
-                    }
-                })
-                if unique_sources:
-                    break
-        except nx.NetworkXNoPath as e:
-            print str(n1) + " -> " + str(n2) + " -  no shortest path"
+    if orders_flag:
+        break
 
 order_file_path = ""
 
 # assigned the right path
-if limited_num_orders and unique_sources:
+if unique_sources:
     order_file_path = output_folder+"/orders_"+str(num_node_network)+"_limited"+str(num_max_orders)+"_unique"+".json"
-elif limited_num_orders and not unique_sources:
-    order_file_path = output_folder+"/orders_"+str(num_node_network)+"_limited"+str(num_max_orders)+".json"
-elif not limited_num_orders and unique_sources:
-    order_file_path = output_folder+"/orders_"+str(num_node_network)+"_unique"+".json"
 else:
-    order_file_path = output_folder+"/orders_"+str(num_node_network)+"_complete.json"
+    order_file_path = output_folder+"/orders_"+str(num_node_network)+"_limited"+str(num_max_orders)+".json"
 
 # write found order into file
 orders_file = open(order_file_path, 'w')
