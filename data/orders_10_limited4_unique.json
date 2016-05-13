@@ -1,30 +1,22 @@
-[
-    {
-        "order_0": {
-            "to": 1, 
-            "from": 0, 
-            "supply": 8
-        }
-    }, 
-    {
-        "order_1": {
-            "to": 0, 
-            "from": 1, 
-            "supply": 8
-        }
-    }, 
-    {
-        "order_2": {
-            "to": 1, 
-            "from": 2, 
-            "supply": 3
-        }
-    }, 
-    {
-        "order_3": {
-            "to": 0, 
-            "from": 3, 
-            "supply": 3
-        }
+{
+    "order_2": {
+        "to": 9, 
+        "from": 6, 
+        "supply": 5
+    },
+    "order_3": {
+        "to": 5,
+        "from": 3,
+        "supply": 2
+    },
+    "order_0": {
+        "to": 2,
+        "from": 0,
+        "supply": 4
+    },
+    "order_1": {
+        "to": 0,
+        "from": 4,
+        "supply": 4
     }
-]
+}

@@ -1,26 +1,16 @@
 {
   "node": {
-    "number":10,
+    "number": 10,
     "p": 0.2
   },
-  "arc": {
-    "type_of_transport": [
-      "truck",
-      "train"
-    ],
-    "capacity": {
-      "truck": 10,
-      "train": 200
-    },
-    "cost": {
-      "truck": {
-        "mean": 20,
-        "variance": 10
-      },
-      "train": {
-        "mean": 200,
-        "variance": 100
-      }
-    }
-  }
+  "capacity_truck": 10,
+  "cost_truck" : {
+    "mean": 20,
+    "variance": 10
+  },
+  "percentage_train" : 10,
+  "multiplicateFactorCostTrain": 2,
+  "multiplicateFactorCapacityTrain": 10,
+  "percentage_of_diameter_train_link": 40,
+  "percentage_of_orders": 1
 }
