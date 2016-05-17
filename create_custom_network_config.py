@@ -90,7 +90,7 @@ while arc_train_count < num_arc_train:
     n2 = random.choice(tmp)
     node_combined = str(n1)+","+str(n2)
     try:
-        shortest_path_len = nx.shortest_path_length(graph, source=n1, target=n2)
+        shortest_path_len = nx.shortest_path_length(largest_component, source=n1, target=n2)
         if shortest_path_len >= distance_for_train and node_combined not in arc_train_node_combined:
             arc_train_node_combined[node_combined] = None
             arc_train_count += 1
@@ -100,16 +100,16 @@ while arc_train_count < num_arc_train:
             }
 
             train_graph.add_edge(n1, n2, arc_data)
-            print "I create a new train arc from node: " + str(n1) + " to node -> " + str(n2) + "with shortest path length: "+str(shortest_path_len)
+            # print "I create a new train arc from node: " + str(n1) + " to node -> " + str(n2) + "with shortest path length: "+str(shortest_path_len)
 
     except nx.NetworkXNoPath as e:
         pass
-        print str(n1) + " -> " + str(n2) + " -  no shortest path"
+        # print str(n1) + " -> " + str(n2) + " -  no shortest path"
 
 # add train network inside truck network
 for o, d, data in train_graph.edges(data=True):
-    print "ciao bel inserisco un arco ;)"
     largest_component.add_edge(o, d, data)
+
 # write network on file
 out_file = open(output_folder+"/random_network_NEW_"+str(num_node_network)+".csv", "w")
 # nx.write_edgelist(graph, out_file, delimiter=",", data=True)
