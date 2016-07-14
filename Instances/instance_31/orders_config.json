@@ -1,6 +1,0 @@
-{
-    "min_len_shortest_path": 3, 
-    "unique_sources": false, 
-    "min_capacity": 10, 
-    "num_max_orders": 300
-}

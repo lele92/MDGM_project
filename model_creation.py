@@ -92,10 +92,11 @@ print "########################### WRITE THE LP MODEL ##########################
 print "############################ INIZIO A RISOLVERE IL PROBLEMA ##########################"
 # The problem is solved using PuLP's choice of Solver
 max_time_cbc = 1800
-prob.solve(pulp.PULP_CBC_CMD(msg=1, maxSeconds=max_time_cbc))
+# prob.solve(pulp.PULP_CBC_CMD(msg=1, maxSeconds=max_time_cbc))
 # prob.solve(pulp.COIN_CMD(msg=1))
 # prob.solve(pulp.COIN_CMD(msg=1, options=['DivingVectorlength on','DivingSome on']))
-# prob.solve(GUROBI_CMD())
+max_time_gurobi = 600
+prob.solve(GUROBI_CMD())
 # The status of the solution is printed to the screen
 print("Status:", LpStatus[prob.status])
 # Each of the variables is printed with it's resolved optimum value
