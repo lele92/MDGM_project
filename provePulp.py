@@ -1,9 +1,13 @@
 __author__ = 'Trappola'
 
 from pulp import *
+import sys
 
+
+if 10000.00 <= 10000:
+    print "ciao bellissmo"
 # pulp.pulpTestAll()
-
+sys.exit()
 # Create the 'prob' variable to contain the problem data
 prob = LpProblem("The Whiskas Problem", LpMinimize)
 LpVariable("example", None, 100)

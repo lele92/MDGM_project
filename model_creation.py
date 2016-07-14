@@ -5,33 +5,36 @@ from pulp import *
 import json
 import time
 import datetime
-
 import sys
 
-# def common_out_neighbors(g, i, j):
-#     return set(g.successors(i)).intersection(g.successors(j))
-#
-# def common_in_neighbors(g, i, j):
-#     return set(g.predecessors(i)).intersection(g.predecessors(j))
+instance_configuration_file = open("Config/read_instance_number.json").read()
+instance_configuration_parameters = json.loads(instance_configuration_file)
 
-network_configuration_file = open("Config/network_configuration.json").read()
+print "################### Instance Number: "+str(instance_configuration_parameters["instance_count"])
+
+instance_folder = "Instances/instance_"+str(instance_configuration_parameters["instance_count"])
+
+network_configuration_file = open(instance_folder+"/network_configuration.json").read()
 network_configuration_parameters = json.loads(network_configuration_file)
 num_node_network = network_configuration_parameters["node"]["number"]
 
+print "Numero di nodi nella rete: "+ str(num_node_network)
+
 # read configuration file with orders parameter for any order of our problem
-orders_configuration_file = open("Config/orders_config.json").read()
+orders_configuration_file = open(instance_folder+"/orders_config.json").read()
 orders_configuration_parameters = json.loads(orders_configuration_file)
 num_max_orders = orders_configuration_parameters["num_max_orders"]
 
 # order_file = open("data/orders_"+str(num_node_network)+"_limited"+str(num_max_orders)+".json").read()
-order_file = open("data/orders_"+str(num_node_network)+"_limited"+str(num_max_orders)+".json").read()
+order_file = open(instance_folder+"/orders_"+str(num_node_network)+"_limited"+str(num_max_orders)+".json").read()
 commodities = json.loads(order_file)
 
-input_folder = "data"
-# path_random_network = input_folder+"/random_network_NEW_"+str(num_node_network)+".csv"
-path_random_network = input_folder+"/random_network_NEW_"+str(num_node_network)+".csv"
+path_random_network = instance_folder+"/random_network_"+str(num_node_network)+".csv"
 input_random_network = open(path_random_network)
 graph = nx.read_edgelist(input_random_network, delimiter=',', create_using=nx.DiGraph(), nodetype=int, data=(('cost', float), ('capacity', float)))
+
+print "Numero di archi nella rete: "+str(len(graph.edges()))
+print "Numero di Ordini: "+str(len(commodities))
 
 # Set up and run the multi-commodity flow model using PuLP
 
@@ -84,12 +87,13 @@ print "FINISH TIME to creation of the model: "+str(datetime.datetime.now())
 print "Impiegati", str(tempo_finale - tempo_iniziale), "secondi."
 print "########################### WRITE THE LP MODEL ############################"
 # The problem data is written to an .lp file
-prob.writeLP("LpModel/UMMModel_6.lp")
+# prob.writeLP(instance_folder+"/UMMModel_"+str(Max_path_lenght_allowed)+".lp")
 
 print "############################ INIZIO A RISOLVERE IL PROBLEMA ##########################"
 # The problem is solved using PuLP's choice of Solver
-# prob.solve(pulp.PULP_CBC_CMD(msg=1))
-prob.solve(pulp.COIN_CMD(msg=1))
+max_time_cbc = 1800
+prob.solve(pulp.PULP_CBC_CMD(msg=1, maxSeconds=max_time_cbc))
+# prob.solve(pulp.COIN_CMD(msg=1))
 # prob.solve(pulp.COIN_CMD(msg=1, options=['DivingVectorlength on','DivingSome on']))
 # prob.solve(GUROBI_CMD())
 # The status of the solution is printed to the screen

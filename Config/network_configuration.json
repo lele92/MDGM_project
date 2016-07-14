@@ -1,16 +1,16 @@
 {
   "node": {
-    "number": 10,
-    "p": 0.2
+      "number": 50,
+      "p": 0.16
   },
-  "capacity_truck": 10,
+  "capacity_truck": 200,
   "cost_truck" : {
-    "mean": 20,
-    "variance": 10
+    "mean": 200,
+    "variance": 100
   },
   "percentage_train" : 10,
-  "multiplicateFactorCostTrain": 2,
-  "multiplicateFactorCapacityTrain": 10,
-  "percentage_of_diameter_train_link": 40,
+  "multiplicateFactorCostTrain": 0.1,
+  "multiplicateFactorCapacityTrain": 0.1,
+  "percentage_of_diameter_train_link": 60,
   "percentage_of_orders": 1
 }

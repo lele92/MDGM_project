@@ -43,7 +43,7 @@ p_linkage_network = network_configuration_parameters["node"]["p"]
 
 # create the random network where links rapresent truck link of the overall network
 graph = nx.erdos_renyi_graph(num_node_network, p_linkage_network, directed=True)
-output_folder = "data"
+output_folder = "Instances/Networks"
 
 # assign to the random network edges the cost and capacity value of the truck
 for s, d, data in graph.edges(data=True):
@@ -92,28 +92,15 @@ while arc_train_count < num_arc_train:
     n2 = random.choice(tmp)
     node_combined = str(n1)+","+str(n2)
     try:
-        shortest_path_len_dijstra = nx.dijkstra_path_length(largest_component, source=n1, target=n2, weight='cost')
+        #shortest_path_len_dijstra = nx.dijkstra_path_length(largest_component, source=n1, target=n2, weight='cost')
         shortest_path_len = nx.shortest_path_length(largest_component, source=n1, target=n2)
         shortest_path_len_dijstra = len(nx.dijkstra_path(largest_component, source=n1, target=n2, weight='cost'))
 
         if shortest_path_len_dijstra >= distance_for_train and node_combined not in arc_train_node_combined:
-            # previous = -1
-            # sommatoria = 0
-            # print nx.shortest_path(largest_component, source=n1, target=n2)
-            # for item in nx.shortest_path(largest_component, source=n1, target=n2):
-            #     if previous != -1:
-            #         sommatoria += largest_component[previous][item]["cost"]
-            #     previous = item
-            # print sommatoria
             arc_train_node_combined[node_combined] = None
             arc_train_count += 1
             shortest_path_len_dijstra = nx.dijkstra_path_length(largest_component, source=n1, target=n2, weight='cost')
             arc_train_cost = shortest_path_len_dijstra * multiplicateFactorCostTrain
-            # arc_data = {
-            #     "capacity": type_of_transport["train"]["capacity"],
-            #     "cost": type_of_transport["train"]["cost"]["mean"]
-            #             + random.randint(-type_of_transport["train"]["cost"]["variance"], type_of_transport["train"]["cost"]["variance"])
-            # }
             arc_data = {
                 "capacity": type_of_transport["train"]["capacity"],
                 "cost": arc_train_cost
@@ -130,8 +117,8 @@ while arc_train_count < num_arc_train:
 for o, d, data in train_graph.edges(data=True):
     largest_component.add_edge(o, d, data)
 
-# write network on file
-out_file = open(output_folder+"/random_network_NEW_"+str(num_node_network)+".csv", "w")
+# write network on file basta cambiare qualcosa qui nel path per mettere le cose apposto
+out_file = open(output_folder+"/random_network_"+str(num_node_network)+".csv", "w")
 # nx.write_edgelist(graph, out_file, delimiter=",", data=True)
 nx.write_edgelist(largest_component, out_file, delimiter=",", data=('cost', 'capacity'))
 
@@ -140,64 +127,3 @@ print "Numero di Archi " + str(len(largest_component.edges()))
 
 ################### FINISH OF THE CONSTRUCTION OF THE NETWORK ###########################
 print "################### FINISH OF THE CONSTRUCTION OF THE NETWORK ###########################"
-
-# sys.exit()
-# read configuration file with orders parameter for any order of our problem
-orders_configuration_file = open("Config/orders_config.json").read()
-orders_configuration_parameters = json.loads(orders_configuration_file)
-
-# assign orders parameter into variable
-min_capacity = orders_configuration_parameters["min_capacity"]              # capacity minima ( = capacity train)
-min_len_shortest_path = orders_configuration_parameters["min_len_shortest_path"]   # lunghezza minima shortest path
-num_max_orders = orders_configuration_parameters["num_max_orders"]          # numero massimo di ordini, solo se limited_num_orders = true
-# limited_num_orders = True   # se = True => vengono salvati al max num_max_orders ordini
-unique_sources = orders_configuration_parameters["unique_sources"]          # se = True => i nodi partenza degli ordini saranno tutti diversi
-orders_flag = False                                                         # = true se è stato raggiunto il numero di ordini specificato in num_max_orders
-
-nodes = largest_component.nodes()
-orders = {}                                                                 # lista di ordini
-order_count = 0
-node_combined_orders = {}
-sources = {}
-
-# create orders with configuration parameter
-while order_count < num_max_orders:
-    n1 = random.choice(nodes)
-    tmp = list(nodes)
-    tmp.remove(n1)
-    n2 = random.choice(tmp)
-    node_combined = str(n1)+","+str(n2)
-    try:
-        shortest_path_len = nx.shortest_path_length(largest_component, source=n1, target=n2)
-
-        if shortest_path_len >= min_len_shortest_path:
-            bool_unique_continue = True
-            if unique_sources and n1 in sources:
-                bool_unique_continue = False
-            if bool_unique_continue and node_combined not in node_combined_orders:
-                node_combined_orders[node_combined] = None
-                sources[n1] = None
-                # print str(n1) + " -> " + str(n2) + " - shortest path length: " + str(shortest_path_len)
-                order_name = "order_" + str(order_count)
-                order_count += 1
-                orders[order_name] = {
-                    'from': n1,
-                    'to': n2,
-                    'supply': float(format(random.uniform(1, min_capacity), '.3f'))
-                }
-    except nx.NetworkXNoPath as e:
-        pass
-        # print str(n1) + " -> " + str(n2) + " -  no shortest path"
-
-order_file_path = ""
-
-# assigned the right path
-if unique_sources:
-    order_file_path = output_folder+"/orders_"+str(num_node_network)+"_limited"+str(num_max_orders)+"_unique"+".json"
-else:
-    order_file_path = output_folder+"/orders_"+str(num_node_network)+"_limited"+str(num_max_orders)+".json"
-
-# write found order into file
-orders_file = open(order_file_path, 'w')
-orders_file.write(json.dumps(orders, indent=4))
-
