@@ -8,7 +8,7 @@ import math
 import sys
 
 input_folder = "Instances/Networks"
-num_node_network = 50
+num_node_network = 200
 path_random_network = input_folder+"/random_network_"+str(num_node_network)+".csv"
 input_random_network = open(path_random_network)
 graph = nx.read_edgelist(input_random_network, delimiter=',', create_using=nx.DiGraph(), nodetype=int, data=(('cost', float), ('capacity', float)))

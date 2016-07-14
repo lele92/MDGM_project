@@ -1,0 +1,89 @@
+################### Instance Number: 2
+Numero di nodi nella rete: 50
+Numero di archi nella rete: 511
+Numero di Ordini: 500
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-14 14:29:16.454000
+FINISH TIME to creation of the model: 2016-07-14 14:30:00.182000
+Impiegati 43.7279999256 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+
+Gurobi Optimizer version 6.5.1 build v6.5.1rc3 (win64)
+Copyright (c) 2016, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Users\Trappola\AppData\Local\Temp\896-pulp.lp
+Reading time = 1.87 seconds
+(null): 26011 rows, 255500 columns, 1022000 nonzeros
+Optimize a model with 26011 rows, 255500 columns and 1022000 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+01]
+  Objective range [7e+01, 3e+03]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 2e+02]
+Found heuristic solution: objective 4.98426e+06
+Presolve time: 2.34s
+Presolved: 26011 rows, 255500 columns, 973000 nonzeros
+Variable types: 0 continuous, 255500 integer (255500 binary)
+
+Root relaxation: objective 8.954599e+05, 6214 iterations, 0.28 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 895459.938    0  299 4984258.66 895459.938  82.0%     -    3s
+H    0     0                    908040.71020 895459.938  1.39%     -    3s
+H    0     0                    902592.44780 895459.938  0.79%     -    5s
+H    0     0                    902591.87580 895459.938  0.79%     -    6s
+     0     0 900012.638    0  307 902591.876 900012.638  0.29%     -    8s
+     0     0 900516.081    0  350 902591.876 900516.081  0.23%     -    8s
+     0     0 901666.891    0  343 902591.876 901666.891  0.10%     -   10s
+     0     0 901666.891    0  288 902591.876 901666.891  0.10%     -   15s
+     0     0 901666.891    0  334 902591.876 901666.891  0.10%     -   17s
+     0     0 901666.891    0  284 902591.876 901666.891  0.10%     -   18s
+     0     0 901981.835    0  255 902591.876 901981.835  0.07%     -   19s
+     0     0 901981.835    0  203 902591.876 901981.835  0.07%     -   22s
+     0     0 901981.835    0  266 902591.876 901981.835  0.07%     -   23s
+     0     0 901981.835    0  255 902591.876 901981.835  0.07%     -   23s
+     0     0 902053.470    0  230 902591.876 902053.470  0.06%     -   24s
+     0     0 902237.896    0  190 902591.876 902237.896  0.04%     -   24s
+     0     0 902329.933    0  258 902591.876 902329.933  0.03%     -   24s
+     0     0 902329.933    0   88 902591.876 902329.933  0.03%     -   25s
+     0     0 902329.933    0  102 902591.876 902329.933  0.03%     -   25s
+     0     0 902329.933    0  126 902591.876 902329.933  0.03%     -   25s
+     0     0 902329.933    0  107 902591.876 902329.933  0.03%     -   25s
+     0     0 902345.710    0  125 902591.876 902345.710  0.03%     -   25s
+     0     0 902407.984    0   80 902591.876 902407.984  0.02%     -   25s
+     0     0 902407.984    0   73 902591.876 902407.984  0.02%     -   25s
+     0     0 902407.984    0   73 902591.876 902407.984  0.02%     -   25s
+     0     0 902407.984    0   94 902591.876 902407.984  0.02%     -   25s
+     0     0 902407.984    0   67 902591.876 902407.984  0.02%     -   25s
+     0     0 902407.984    0   80 902591.876 902407.984  0.02%     -   25s
+     0     0 902407.984    0   35 902591.876 902407.984  0.02%     -   26s
+     0     0 902407.984    0   73 902591.876 902407.984  0.02%     -   26s
+     0     0 902407.984    0   71 902591.876 902407.984  0.02%     -   26s
+     0     0 902407.984    0   76 902591.876 902407.984  0.02%     -   26s
+     0     0 902407.984    0   50 902591.876 902407.984  0.02%     -   26s
+H    0     0                    902586.85440 902407.984  0.02%     -   26s
+     0     0 902407.984    0   64 902586.854 902407.984  0.02%     -   26s
+     0     0 902407.984    0   60 902586.854 902407.984  0.02%     -   26s
+     0     0 902468.785    0   36 902586.854 902468.785  0.01%     -   26s
+     0     0 902524.704    0   33 902586.854 902524.704  0.01%     -   26s
+
+Cutting planes:
+  Gomory: 8
+  Cover: 90
+  Clique: 7
+  MIR: 32
+  GUB cover: 11
+
+Explored 0 nodes (20953 simplex iterations) in 26.18 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 9.025868544000e+05, best bound 9.025247037754e+05, gap 0.0069%
+
+Wrote result file 'C:\Users\Trappola\AppData\Local\Temp\896-pulp.sol'
+
+('Status:', 'Optimal')
+('Total Cost of Ingredients per can = ', 902586.8543999998)

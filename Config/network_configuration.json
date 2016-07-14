@@ -1,7 +1,7 @@
 {
   "node": {
-      "number": 50,
-      "p": 0.16
+      "number": 200,
+      "p": 0.04
   },
   "capacity_truck": 200,
   "cost_truck" : {

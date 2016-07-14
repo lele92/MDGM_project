@@ -1,0 +1,61 @@
+################### Instance Number: 0
+Numero di nodi nella rete: 50
+Numero di archi nella rete: 511
+Numero di Ordini: 100
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-14 14:26:50.180000
+FINISH TIME to creation of the model: 2016-07-14 14:26:58.760000
+Impiegati 8.57999992371 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+
+Gurobi Optimizer version 6.5.1 build v6.5.1rc3 (win64)
+Copyright (c) 2016, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Users\Trappola\AppData\Local\Temp\8444-pulp.lp
+Reading time = 0.36 seconds
+(null): 5611 rows, 51100 columns, 204400 nonzeros
+Optimize a model with 5611 rows, 51100 columns and 204400 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+01]
+  Objective range [6e+01, 3e+03]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 2e+02]
+Found heuristic solution: objective 928698
+Presolve time: 0.37s
+Presolved: 5611 rows, 51100 columns, 194600 nonzeros
+Variable types: 0 continuous, 51100 integer (51100 binary)
+
+Root relaxation: objective 2.368504e+05, 1487 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 236850.400    0   75 928698.269 236850.400  74.5%     -    0s
+H    0     0                    239294.74090 236850.400  1.02%     -    0s
+H    0     0                    238317.07750 236850.400  0.62%     -    0s
+     0     0 237795.053    0   66 238317.077 237795.053  0.22%     -    1s
+     0     0 237795.053    0   69 238317.077 237795.053  0.22%     -    1s
+     0     0 237888.965    0   57 238317.077 237888.965  0.18%     -    2s
+H    0     0                    238203.63530 237888.965  0.13%     -    2s
+     0     0 238045.407    0   58 238203.635 238045.407  0.07%     -    2s
+     0     0 238092.837    0   63 238203.635 238092.837  0.05%     -    2s
+H    0     0                    238136.63860 238092.837  0.02%     -    2s
+     0     0 238092.837    0    5 238136.639 238092.837  0.02%     -    2s
+     0     0 238104.466    0    4 238136.639 238104.466  0.01%     -    2s
+     0     0     cutoff    0      238136.639 238136.639  0.00%     -    2s
+
+Cutting planes:
+  Cover: 6
+  Clique: 1
+
+Explored 0 nodes (2898 simplex iterations) in 2.32 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.381366386000e+05, best bound 2.381366386000e+05, gap 0.0%
+
+Wrote result file 'C:\Users\Trappola\AppData\Local\Temp\8444-pulp.sol'
+
+('Status:', 'Optimal')
+('Total Cost of Ingredients per can = ', 238136.63859999998)
