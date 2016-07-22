@@ -9,6 +9,13 @@ import sys
 
 instance_configuration_file = open("Config/read_instance_number.json").read()
 instance_configuration_parameters = json.loads(instance_configuration_file)
+gurobi_bool = True
+# gurobi_bool = False
+
+if gurobi_bool:
+    print "################### GUROBI - Instance Number: "+str(instance_configuration_parameters["instance_count"])+" ###################\n\n"
+else:
+    print "################### CBC - Instance Number: " + str(instance_configuration_parameters["instance_count"]) + " ###################\n\n"
 
 print "################### Instance Number: "+str(instance_configuration_parameters["instance_count"])
 
@@ -92,11 +99,16 @@ print "########################### WRITE THE LP MODEL ##########################
 print "############################ INIZIO A RISOLVERE IL PROBLEMA ##########################"
 # The problem is solved using PuLP's choice of Solver
 max_time_cbc = 1800
-# prob.solve(pulp.PULP_CBC_CMD(msg=1, maxSeconds=max_time_cbc))
+#todo:CBC
+if not gurobi_bool:
+    prob.solve(pulp.PULP_CBC_CMD(msg=1, maxSeconds=max_time_cbc))
 # prob.solve(pulp.COIN_CMD(msg=1))
 # prob.solve(pulp.COIN_CMD(msg=1, options=['DivingVectorlength on','DivingSome on']))
 max_time_gurobi = 600
-prob.solve(GUROBI_CMD())
+
+#todo:gurobi
+if gurobi_bool:
+    prob.solve(GUROBI_CMD())
 # The status of the solution is printed to the screen
 print("Status:", LpStatus[prob.status])
 # Each of the variables is printed with it's resolved optimum value

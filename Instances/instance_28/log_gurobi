@@ -1,0 +1,54 @@
+################### GUROBI - Instance Number: 28 ###################
+
+
+################### Instance Number: 28
+Numero di nodi nella rete: 200
+Numero di archi nella rete: 1743
+Numero di Ordini: 200
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-17 08:54:30.490000
+FINISH TIME to creation of the model: 2016-07-17 08:55:33.601000
+Impiegati 63.111000061 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+
+Gurobi Optimizer version 6.5.1 build v6.5.1rc3 (win64)
+Copyright (c) 2016, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Users\lele\AppData\Local\Temp\10248-pulp.lp
+Reading time = 3.05 seconds
+(null): 41943 rows, 348600 columns, 1394400 nonzeros
+Optimize a model with 41943 rows, 348600 columns and 1394400 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+01]
+  Objective range [1e+02, 3e+03]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 2e+02]
+Presolve removed 2 rows and 10 columns
+Presolve time: 4.48s
+Presolved: 41941 rows, 348590 columns, 1313762 nonzeros
+Variable types: 0 continuous, 348590 integer (348590 binary)
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.2730880e+03   4.000000e+02   0.000000e+00      6s
+    4045    5.6419938e+05   0.000000e+00   0.000000e+00      6s
+
+Root relaxation: objective 5.641994e+05, 4045 iterations, 0.24 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    564199.37820 564199.378  0.00%     -    6s
+
+Explored 0 nodes (4045 simplex iterations) in 6.35 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.641993782000e+05, best bound 5.641993782000e+05, gap 0.0000%
+
+Wrote result file 'C:\Users\lele\AppData\Local\Temp\10248-pulp.sol'
+
+('Status:', 'Optimal')
+('Total Cost of Ingredients per can = ', 564199.3781999999)

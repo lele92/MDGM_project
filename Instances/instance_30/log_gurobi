@@ -1,0 +1,56 @@
+################### GUROBI - Instance Number: 30 ###################
+
+
+################### Instance Number: 30
+Numero di nodi nella rete: 200
+Numero di archi nella rete: 1968
+Numero di Ordini: 100
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-17 09:02:00.837000
+FINISH TIME to creation of the model: 2016-07-17 09:02:34.922000
+Impiegati 34.0850000381 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+
+Gurobi Optimizer version 6.5.1 build v6.5.1rc3 (win64)
+Copyright (c) 2016, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Users\lele\AppData\Local\Temp\9192-pulp.lp
+Reading time = 1.79 seconds
+(null): 22068 rows, 196800 columns, 787200 nonzeros
+Optimize a model with 22068 rows, 196800 columns and 787200 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+01]
+  Objective range [3e+01, 3e+03]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 2e+02]
+Presolve time: 2.23s
+Presolved: 22068 rows, 196800 columns, 746100 nonzeros
+Variable types: 0 continuous, 196800 integer (196800 binary)
+Found heuristic solution: objective 773623.79460
+
+Root relaxation: objective 1.722885e+05, 2386 iterations, 0.14 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 172288.469    0   38 773623.795 172288.469  77.7%     -    3s
+H    0     0                    172767.29120 172288.469  0.28%     -    4s
+H    0     0                    172740.66990 172288.469  0.26%     -    4s
+     0     0     cutoff    0      172740.670 172740.670  0.00%     -    5s
+
+Cutting planes:
+  Gomory: 3
+  Cover: 4
+  MIR: 2
+
+Explored 0 nodes (2409 simplex iterations) in 5.04 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.727406699000e+05, best bound 1.727406699000e+05, gap 0.0%
+
+Wrote result file 'C:\Users\lele\AppData\Local\Temp\9192-pulp.sol'
+
+('Status:', 'Optimal')
+('Total Cost of Ingredients per can = ', 172740.66990000012)

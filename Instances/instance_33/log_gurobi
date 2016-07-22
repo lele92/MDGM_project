@@ -1,0 +1,49 @@
+################### GUROBI - Instance Number: 33 ###################
+
+
+################### Instance Number: 33
+Numero di nodi nella rete: 200
+Numero di archi nella rete: 1795
+Numero di Ordini: 100
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-17 19:03:25.957000
+FINISH TIME to creation of the model: 2016-07-17 19:03:53.158000
+Impiegati 27.2009999752 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+
+Gurobi Optimizer version 6.5.1 build v6.5.1rc3 (win64)
+Copyright (c) 2016, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Users\lele\AppData\Local\Temp\14076-pulp.lp
+Reading time = 1.53 seconds
+(null): 21895 rows, 179500 columns, 718000 nonzeros
+Optimize a model with 21895 rows, 179500 columns and 718000 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+01]
+  Objective range [2e+01, 3e+03]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 2e+02]
+Presolve time: 1.81s
+Presolved: 21895 rows, 179500 columns, 678200 nonzeros
+Variable types: 0 continuous, 179500 integer (179500 binary)
+Found heuristic solution: objective 879993.33490
+
+Root relaxation: objective 2.114093e+05, 2040 iterations, 0.10 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 211409.302    0    7 879993.335 211409.302  76.0%     -    2s
+H    0     0                    211410.23680 211409.302  0.00%     -    2s
+
+Explored 0 nodes (2042 simplex iterations) in 3.04 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.114102368000e+05, best bound 2.114093020000e+05, gap 0.0004%
+
+Wrote result file 'C:\Users\lele\AppData\Local\Temp\14076-pulp.sol'
+
+('Status:', 'Optimal')
+('Total Cost of Ingredients per can = ', 211410.23680000004)

@@ -1,0 +1,51 @@
+################### GUROBI - Instance Number: 26 ###################
+
+
+################### Instance Number: 26
+Numero di nodi nella rete: 200
+Numero di archi nella rete: 1902
+Numero di Ordini: 300
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-17 08:52:23.826000
+FINISH TIME to creation of the model: 2016-07-17 08:53:57.554000
+Impiegati 93.7279999256 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+
+Gurobi Optimizer version 6.5.1 build v6.5.1rc3 (win64)
+Copyright (c) 2016, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Users\lele\AppData\Local\Temp\10804-pulp.lp
+Reading time = 4.77 seconds
+(null): 62202 rows, 570600 columns, 2282400 nonzeros
+Optimize a model with 62202 rows, 570600 columns and 2282400 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+01]
+  Objective range [7e+01, 3e+03]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 2e+02]
+Presolve removed 0 rows and 0 columns (presolve time = 7s) ...
+Presolve time: 6.98s
+Presolved: 62202 rows, 570600 columns, 2155500 nonzeros
+Variable types: 0 continuous, 570600 integer (570600 binary)
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   6.000000e+02   0.000000e+00     10s
+    6039    8.3480913e+05   0.000000e+00   0.000000e+00     10s
+
+Root relaxation: objective 8.348091e+05, 6039 iterations, 0.41 seconds
+Total elapsed time = 10.39s
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 834809.134    0   55          - 834809.134      -     -   10s
+H    0     0                    908346.50570 834809.134  8.10%     -   13s
+H    0     0                    907418.15220 834809.134  8.00%     -   13s
+H    0     0                    835529.53080 834809.134  0.09%     -   14s
+H    0     0                    835497.30060 834809.134  0.08%     -   16s
+     0     0     cutoff    0      835497.301 835497.301  0.00%     -   18s
+
+Cutting planes:

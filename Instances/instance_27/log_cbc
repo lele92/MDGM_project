@@ -1,0 +1,60 @@
+################### CBC - Instance Number: 27 ###################
+
+
+################### Instance Number: 27
+Numero di nodi nella rete: 200
+Numero di archi nella rete: 1743
+Numero di Ordini: 100
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-17 08:53:34.918000
+FINISH TIME to creation of the model: 2016-07-17 08:54:03.571000
+Impiegati 28.6530001163 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+Welcome to the CBC MILP Solver
+Version: 2.9.0
+Build Date: Feb 12 2015
+
+command line - C:\Users\lele\Anaconda2\lib\site-packages\pulp\solverdir\cbc\win\64\cbc.exe 10540-pulp.mps sec 1800 branch printingOption
+s all solution 10540-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 21848 COLUMNS
+At line 1241949 RHS
+At line 1263793 BOUNDS
+At line 1438094 ENDATA
+Problem MODEL has 21843 rows, 174300 columns and 697200 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 1800
+Continuous objective value is 265373 - 0.46 seconds
+Cgl0004I processed model has 21843 rows, 174300 columns (174300 integer (174300 of which binary)) and 697200 elements
+Cbc0038I Initial state - 0 integers unsatisfied sum - 1.28786e-014
+Cbc0038I Solution found of 265373
+Cbc0038I Before mini branch and bound, 174300 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (3.30 seconds)
+Cbc0038I After 3.33 seconds - Feasibility pump exiting with objective of 265373 - took 0.65 seconds
+Cbc0012I Integer solution of 265372.89 found by feasibility pump after 0 iterations and 0 nodes (3.40 seconds)
+Cbc0001I Search completed - best objective 265372.8858, took 0 iterations and 0 nodes (3.56 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 265373 to 265373
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                265372.88580000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             4.11
+Time (Wallclock seconds):       4.11
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       6.05   (Wallclock seconds):       6.05
+
+('Status:', 'Optimal')
+('Total Cost of Ingredients per can = ', 265372.88580000005)

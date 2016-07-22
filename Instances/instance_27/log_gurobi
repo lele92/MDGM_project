@@ -1,0 +1,48 @@
+################### GUROBI - Instance Number: 27 ###################
+
+
+################### Instance Number: 27
+Numero di nodi nella rete: 200
+Numero di archi nella rete: 1743
+Numero di Ordini: 100
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-17 08:53:00.959000
+FINISH TIME to creation of the model: 2016-07-17 08:53:29.646000
+Impiegati 28.6869997978 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+
+Gurobi Optimizer version 6.5.1 build v6.5.1rc3 (win64)
+Copyright (c) 2016, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Users\lele\AppData\Local\Temp\12872-pulp.lp
+Reading time = 1.53 seconds
+(null): 21843 rows, 174300 columns, 697200 nonzeros
+Optimize a model with 21843 rows, 174300 columns and 697200 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+01]
+  Objective range [9e+01, 3e+03]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 2e+02]
+Presolve time: 2.26s
+Presolved: 21843 rows, 174300 columns, 656900 nonzeros
+Variable types: 0 continuous, 174300 integer (174300 binary)
+Found heuristic solution: objective 771630.55690
+
+Root relaxation: objective 2.653729e+05, 1843 iterations, 0.09 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    265372.88580 265372.886  0.00%     -    3s
+
+Explored 0 nodes (1843 simplex iterations) in 3.41 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.653728858000e+05, best bound 2.653728858000e+05, gap 0.0%
+
+Wrote result file 'C:\Users\lele\AppData\Local\Temp\12872-pulp.sol'
+
+('Status:', 'Optimal')
+('Total Cost of Ingredients per can = ', 265372.88580000005)

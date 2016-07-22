@@ -1,0 +1,76 @@
+################### GUROBI - Instance Number: 31 ###################
+
+
+################### Instance Number: 31
+Numero di nodi nella rete: 200
+Numero di archi nella rete: 1968
+Numero di Ordini: 200
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-17 09:03:11.953000
+FINISH TIME to creation of the model: 2016-07-17 09:04:44.121000
+Impiegati 92.1679999828 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+
+Gurobi Optimizer version 6.5.1 build v6.5.1rc3 (win64)
+Copyright (c) 2016, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Users\lele\AppData\Local\Temp\11840-pulp.lp
+Reading time = 3.85 seconds
+(null): 42168 rows, 393600 columns, 1574400 nonzeros
+Optimize a model with 42168 rows, 393600 columns and 1574400 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+01]
+  Objective range [3e+01, 3e+03]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 2e+02]
+Presolve removed 0 rows and 0 columns (presolve time = 5s) ...
+Presolve time: 5.08s
+Presolved: 42168 rows, 393600 columns, 1492200 nonzeros
+Variable types: 0 continuous, 393600 integer (393600 binary)
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   4.000000e+02   0.000000e+00      7s
+    5406    3.7222814e+05   0.000000e+00   0.000000e+00      8s
+
+Root relaxation: objective 3.722281e+05, 5406 iterations, 0.66 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 372228.136    0  291          - 372228.136      -     -    8s
+H    0     0                    695771.51330 372228.136  46.5%     -   10s
+H    0     0                    377106.89770 372228.136  1.29%     -   11s
+H    0     0                    375661.31760 372228.136  0.91%     -   15s
+     0     0 374557.498    0  288 375661.318 374557.498  0.29%     -   17s
+     0     0 375011.503    0  266 375661.318 375011.503  0.17%     -   19s
+     0     0 375402.299    0  284 375661.318 375402.299  0.07%     -   22s
+     0     0 375402.299    0  170 375661.318 375402.299  0.07%     -   29s
+     0     0 375402.299    0  178 375661.318 375402.299  0.07%     -   30s
+     0     0 375492.013    0  217 375661.318 375492.013  0.05%     -   31s
+     0     0 375619.313    0  133 375661.318 375619.313  0.01%     -   32s
+     0     0 375619.313    0   46 375661.318 375619.313  0.01%     -   33s
+     0     0 375619.313    0   45 375661.318 375619.313  0.01%     -   33s
+     0     0 375619.313    0   19 375661.318 375619.313  0.01%     -   33s
+     0     0 375656.947    0    4 375661.318 375656.947  0.00%     -   33s
+
+Cutting planes:
+  Gomory: 6
+  Cover: 32
+  Clique: 11
+  MIR: 10
+  GUB cover: 1
+  Zero half: 1
+
+Explored 0 nodes (9598 simplex iterations) in 33.23 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.756613176000e+05, best bound 3.756569466000e+05, gap 0.0012%
+
+Wrote result file 'C:\Users\lele\AppData\Local\Temp\11840-pulp.sol'
+
+('Status:', 'Optimal')
+('Total Cost of Ingredients per can = ', 375661.3175999997)
