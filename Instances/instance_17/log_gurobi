@@ -1,0 +1,59 @@
+################### Instance Number: 17
+Numero di nodi nella rete: 100
+Numero di archi nella rete: 893
+Numero di Ordini: 300
+########################### CREATION OF THE ILP MODEL ############################
+Start TIME to creation of the model: 2016-07-15 18:27:49.278000
+FINISH TIME to creation of the model: 2016-07-15 18:28:24.431000
+Impiegati 35.1529998779 secondi.
+########################### WRITE THE LP MODEL ############################
+############################ INIZIO A RISOLVERE IL PROBLEMA ##########################
+
+Gurobi Optimizer version 6.5.1 build v6.5.1rc3 (win64)
+Copyright (c) 2016, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Users\Filippo\AppData\Local\Temp\2984-pulp.lp
+Reading time = 1.84 seconds
+(null): 31193 rows, 267900 columns, 1071600 nonzeros
+Optimize a model with 31193 rows, 267900 columns and 1071600 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+01]
+  Objective range [7e+01, 3e+03]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 2e+02]
+Presolve time: 2.08s
+Presolved: 31193 rows, 267900 columns, 1014600 nonzeros
+Variable types: 0 continuous, 267900 integer (267900 binary)
+
+Root relaxation: objective 7.524799e+05, 5030 iterations, 0.16 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 752479.921    0   75          - 752479.921      -     -    3s
+H    0     0                    827433.49280 752479.921  9.06%     -    3s
+H    0     0                    816109.61720 752479.921  7.80%     -    3s
+H    0     0                    754797.97680 752479.921  0.31%     -    4s
+H    0     0                    753922.04700 752479.921  0.19%     -    4s
+     0     0 753729.735    0   31 753922.047 753729.735  0.03%     -    5s
+     0     0 753729.735    0   50 753922.047 753729.735  0.03%     -   10s
+     0     0 753732.132    0   32 753922.047 753732.132  0.03%     -   10s
+     0     0 753837.564    0   32 753922.047 753837.564  0.01%     -   11s
+     0     0 753913.287    0    7 753922.047 753913.287  0.00%     -   11s
+
+Cutting planes:
+  Gomory: 6
+  Cover: 15
+  MIR: 7
+  GUB cover: 1
+
+Explored 0 nodes (8793 simplex iterations) in 11.61 seconds
+Thread count was 4 (of 4 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 7.539220470000e+05, best bound 7.539132866000e+05, gap 0.0012%
+
+Wrote result file 'C:\Users\Filippo\AppData\Local\Temp\2984-pulp.sol'
+
+('Status:', 'Optimal')
+('Total Cost of Ingredients per can = ', 753922.0469999994)
